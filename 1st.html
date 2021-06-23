@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная 8</title>
+</head>
+<style>
+    .container_1st,
+    .container_2nd {
+        text-align: center;
+        border: 1px solid;
+        /* padding-bottom: 30px; */
+    }
+
+    .container_2nd {
+        margin-top: 10px;
+    }
+
+    .y_OR_n,
+    .mag {
+        margin-bottom: 0;
+    }
+
+    .r {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .out-1,
+    .out-2 {
+        margin: 10px;
+    }
+</style>
+
+<body>
+
+
+    <!-- Лабораторная 8.1 -->
+
+    <div class="container_1st">
+        <h3 class="y_OR_n"> Tell me 'yes' or 'no' <h5 class="r"><br>(скажи мне ДА или НЕТ)</h5>
+        </h3>
+        <input type="text" class="i-1" placeholder="Что хотели бы знать?">
+        <button class="b-1">Хочу ответ</button>
+        <div class="out-1"></div>
+    </div>
+    <script>
+        document.querySelector('.b-1').onclick = () => {
+            let inp = document.querySelector('.i-1');
+            let out = document.querySelector('.out-1');
+            if (inp.value == '') {
+                alert("Я для тебя что, шутка? Где вопрос?");
+            }
+            else {
+                reply = Math.random();
+
+                if (reply > 0.5) {
+                    out.innerHTML = 'Да';
+                }
+                else {
+                    out.innerHTML = 'Нет';
+                }
+            }
+
+        }
+    </script>
+
+
+    <!-- Лабораторная 8.2 -->
+
+    <div class="container_2nd">
+        <h3 class="mag"> Magic 8-Ball <h5 class="r"><br>Шар предсказаний</h5>
+        </h3>
+        <input type="text" class="i-2" placeholder="Что хотели бы знать?">
+        <button class="b-2">Хочу ответ</button>
+        <div class="out-2"></div>
+    </div>
+    <script>
+        document.querySelector('.b-2').onclick = () => {
+            let inp = document.querySelector('.i-2');
+            let out = document.querySelector('.out-2');
+            if (inp.value == '') {
+                alert("Я для тебя что, шутка? Где вопрос?");
+            }
+            else {
+                let answers = [
+                    'Вполне вероятно', 'Никогда!', 'Я бы не стал говорить', 'Конечно, нет',
+                    'Надеюсь, что да', 'Надеюсь, что нет', 'Пфф', 'Какая разница',
+                    'Возможно', 'Есть небольшой шанс'];
+                answer = answers[Math.floor(Math.random() * answers.length)];
+                out.innerHTML = answer;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
